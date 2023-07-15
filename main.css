@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --width-sideCard: 50px;
+}
+
+.mainPage {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111111;
+}
+
+.cardForm {
+    position: relative;
+    height: 85%;
+    width: 400px;
+    transform-style: preserve-3d;
+    transition: 1.5s;
+}
+
+/* .cardFace {
+    transform-style: preserve-3d;
+} */
+
+.cardBack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    backface-visibility: hidden;
+    transform: translateZ(-25px) rotateY(180deg);
+}
+
+.showcaseBox {
+    position: relative;
+    height: 40%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #00FF00, whitesmoke);
+    padding: 20px 30px;
+}
+
+.showcaseBox--logoProduct {
+    font-size: 50px;
+    color: white;
+    opacity: .6;
+}
+
+.showcaseBox--imgShowcase {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    transform: translateY(-20%);
+    height: auto;
+    width: 100%;
+    filter: drop-shadow(10px 10px 5px gray);
+    opacity: 0;
+    transition: .2s;
+}
+
+.informationProduct {
+    height: 60%;
+    width: 100%;
+    padding: 20px 30px;
+}
+
+.informationProduct--name {
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+.informationProduct--origin {
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+    opacity: .8;
+    margin-top: 10px;
+}
+
+.sizeBar {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sizeBar .sizeTitle {
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-right: 40px;
+}
+
+.sizeBar .sizeChoose {
+    height: 20px;
+    width: 20px;
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 5px gray;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.sizeChoose:hover {
+    cursor: pointer;
+    background-color: #00FF00;
+    color: white;
+}
+
+.colorBar {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.colorTitle {
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-right: 40px;
+}
+
+.colorChoose {
+    height: 20px;
+    width: 20px;
+    padding: 20px;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+.colorChoose:nth-child(2) {
+    background-color: blue;
+}
+
+.colorChoose:nth-child(3) {
+    background-color: orangered;
+}
+
+.colorChoose:nth-child(4) {
+    background-color: gray;
+}
+
+.colorChoose:hover {
+    cursor: grab;
+    box-shadow: 0 0 0 2px white, 0 0 0 5px gray;
+}
+
+.btnBox {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.costContent {
+    color: white;
+    font-size: 24px;
+    font-weight: lighter;
+    background-color: lime;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: solid 6px #DDDDDD;
+    box-shadow: inset 4px 4px 5px #00ad00,
+                4px 4px 5px gray;
+}
+
+.funcBtn {
+    font-size: 24px;
+    padding: 10px 60px;
+    color: white;
+    background-color: #00FF00;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 5px 5px 5px #00ad00;
+    text-shadow: 4px 4px 4px black;
+    transition: .5s;
+}
+
+.funcBtn:hover {
+    cursor: grab;
+    box-shadow: unset;
+}
+
+.funcBtn:active {
+    cursor: grabbing;
+    transform: scale(.9);
+}
+
+.closeCard {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60px;
+    width: 60px;
+    color: white;
+    font-size: 24px;
+    transform: translate(50%, -50%);
+    background-color: red;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 0 0 10px #111111;
+}
+
+.closeCard:hover {
+    cursor: grab;
+    box-shadow: 0 0 0 10px #111111,
+                inset 10px 10px 5px #960000;
+                text-shadow: 5px 5px 3px black;
+}
+
+.cardLeft {
+    position: absolute;
+    top: 0;
+    left: -25px;
+    height: 100%;
+    width: var(--width-sideCard);
+    background-color: #EEEEEE;
+    transform: rotateY(-90deg);
+}
+
+.cardRight {
+    position: absolute;
+    top: 0;
+    right: -25px;
+    height: 100%;
+    width: var(--width-sideCard);
+    background-color: #EEEEEE;
+    transform: rotateY(90deg);
+}
+
+.cardFront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    transform: translateZ(25px);
+    backface-visibility: hidden;
+}
+
+.cardFront::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 80%;
+    background-color: #00FF00;
+    border-radius: 100% 0% 100% 0% / 0% 46% 54% 100% ;
+}
+
+.cardFront--imgShowcase {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    width: 80%;
+    filter: drop-shadow(10px 10px 5px gray);
+    height: auto;
+}
+
+.cardFront--title {
+    position: absolute;
+    top:calc(50% + 100px);
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+.cardForm--showBtn {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    font-size: 30px;
+    color: black;
+    font-weight: bolder;
+    background-color: white;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: inset 5px 5px 5px gray;
+    border-right: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    text-shadow: 5px 5px 4px gray;
+    transition: .5s;
+}
+
+.cardForm--showBtn:hover {
+    cursor: grab;
+    color: white;
+    background-color: #111111;
+    box-shadow: unset;
+    text-shadow: unset;
+    border: none;
+}
+
+.cardForm--showBtn:active {
+    cursor: grabbing;
+    transform: translateX(-50%) scale(.9);
+}
+
+.heart {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 26px;
+    color: red;
+}
+
+.heart:hover {
+    cursor: grab;
+}
+
+/* Status Active */
+.cardForm.active {
+    transform: rotateY(180deg);
+    transition: 1.5s;
+}
+
+.cardForm.active .showcaseBox--imgShowcase {
+    opacity: 1;
+    transform: translateY(-20%) rotate(15deg);
+    transform-origin: bottom;
+    transition: .5s;
+    transition-delay: 1.5s;
+}
+
+@keyframes animateCard {
+    to {
+        transform: rotateY(360deg);
+    }
+}
